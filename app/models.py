@@ -1,8 +1,33 @@
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch  import receiver
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
 # Create your models here.
-class Book(models.Model):
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(null=True, default="avatar.svg")
+
+
+    def __str__(self):
+        return f'{self.user.username} Profile'
+
+    class Meta:
+        db_table = 'profile'
+
+    @receiver(post_save, sender=User)
+    def update_create_profile(sender,instance,created, **kwargs):
+        try:
+            instance.profile.save()
+        except ObjectDoesNotExist:
+            Profile.objects.create(user=instance)
+
+    def save_profile(self):
+        self.save()
+
+
+class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  
     STATIONS = (('Mwiki - 6:22 AM', 'Mwiki - 6:22 AM'),('Maji Mazuri - 6:24 AM', 'Maji Mazuri - 6:24 AM'),('Kamutini -  6:27 AM', 'Kamutini - 6:27 AM'),('Sunton - 6:30 AM','Sunton - 6:30 AM'),('Hunters - 6:33 AM', 'Hunters - 6:33 AM'))
     station = models.CharField(max_length=50, choices=STATIONS, null=True)
@@ -16,5 +41,5 @@ class Book(models.Model):
     class Meta:
         ordering = ['-booked_on']
 
-    # def __str__(self):
-    #     return self.user
+    def __str__(self):
+        return f'{self.user.username}'
