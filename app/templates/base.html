@@ -17,7 +17,7 @@
       crossorigin="anonymous"
     />
     
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/book.css' %}" />
 
     <title>Aluta</title>
   </head>
@@ -36,6 +36,8 @@
       
 
       {% endblock %}
+
+      {% include 'footer.html' %}
       {% block scripts %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 

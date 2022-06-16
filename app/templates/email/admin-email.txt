@@ -1,0 +1,4 @@
+
+Dear {{admin_name}}, a new member called {{name}} has joined your team. Please check this in your Database.
+
+Thank you.

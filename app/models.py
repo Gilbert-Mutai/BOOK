@@ -28,9 +28,10 @@ class Profile(models.Model):
 
 
 class Booking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  
-    STATIONS = (('Mwiki - 6:22 AM', 'Mwiki - 6:22 AM'),('Maji Mazuri - 6:24 AM', 'Maji Mazuri - 6:24 AM'),('Kamutini -  6:27 AM', 'Kamutini - 6:27 AM'),('Sunton - 6:30 AM','Sunton - 6:30 AM'),('Hunters - 6:33 AM', 'Hunters - 6:33 AM'))
-    station = models.CharField(max_length=50, choices=STATIONS, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE) 
+    STATIONS = (('Mwiki', 'Mwiki'),('Maji Mazuri', 'Maji Mazuri'),('Kamutini', 'Kamutini'),('Sunton','Sunton'),('Hunters', 'Hunters')) 
+    From = models.CharField(max_length=50, choices=STATIONS, null=True)
+    To= models.CharField(max_length=50, choices=STATIONS, null=True)
     date = models.DateField()
     AMOUNT = (('Ksh. 0.00','Ksh. 0.00'),('Ksh. 50.00','Ksh. 50.00'))
     amount = models.CharField(max_length=30, choices=AMOUNT, null=True,default = 'Ksh. 50.00')

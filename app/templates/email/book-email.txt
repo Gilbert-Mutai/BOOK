@@ -1,0 +1,5 @@
+Hello {{name}},
+Thank you for booking and secuiring your seat.You will be picked at {{station}} station on {{date}} at exactly {{time}}
+For any inquiries, please contact us on +254 7XX XXX XXX
+
+Best regards,Aluta Travellers

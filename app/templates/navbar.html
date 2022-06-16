@@ -1,5 +1,4 @@
 {% load static %}
-<!doctype html>
 <html lang="en">
 
 <head>
@@ -19,7 +18,7 @@
 <body class="container-fluid">
     <section>
     
-        <nav class="mb-1 navbar navbar-expand-sm navbar-dark " style="background-color: lightseagreen;">
+        <nav class="mb-1 navbar upper navbar-expand-sm navbar-dark " style="background-color: maROON;">
             <div class="container-fluid px-0 d nav-border text-white-50">
              
                 <a class="navbar-brand" href="/"><b>ALUTA TRAVELLERS</b></a>
@@ -32,21 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
                     <ul class="nav navbar-nav ml-auto">
 
-                        <li class="navbar-item">
-                            <a style="color:aliceblue" class="nav-link " href="{% url 'booking'%}">
-                                Book Now
-                            </a>
-                            </li>
-                       
-
-
-                        {% comment %} <li class="navbar-item" style="list-style: none;">
-                            <a style="color:aliceblue" class="nav-link " href="{% url 'applications'%}">
-                                Applications
-                            </a>
-                        </li> {% endcomment %}
-                    
-
+                
                       <img class="rounded-circle account-profile " src="{{ user.profile.image.url }}" alt="user" height="40px"
                       width="40px">
                        
@@ -69,11 +54,35 @@
                     
                     <div>
                         <ul class="nav navbar-nav ml-auto">
+
+
                         <li class="navbar-item" style="list-style: none;">
                             <a style="color:aliceblue" class="nav-link " href="{% url 'home'%}">
                                 Home
                             </a>
                         </li>
+
+
+                        <li class="navbar-item" style="list-style: none;">
+                            <a style="color:aliceblue" class="nav-link " href="{% url 'about-us'%}">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li class="navbar-item" style="list-style: none;">
+                            <a style="color:aliceblue" class="nav-link " href="{% url 'contact-us'%}">
+                                Contact Us
+                            </a>
+                        </li>
+
+
+                        <li class="navbar-item" style="list-style: none;">
+                            <a style="color:aliceblue" class="nav-link " href="{% url 'stations'%}">
+                                Stations
+                            </a>
+                        </li>
+
+
                         <li class="navbar-item" style="list-style: none;">
                             <a style="color:aliceblue"class="nav-link" href="{% url 'register' %}">
                                 Register
@@ -97,5 +106,20 @@
                 </div>
         </nav>
     </section>
+
+    <section>
+    
+        <nav class="mb-1 navbar lower navbar-expand-sm" style="background-color:white ;">
+            <div class="container-fluid">
+
+                <h5 class="page-name">{{page}}</h5>
+
+                <a href="{% url 'booking'%}" class="btn btn-info btn-md active" role="button" aria-pressed="true">Book Now</a>
+
+                </div>
+        </nav>
+    </section>
+
+    
 </body>
 </html>

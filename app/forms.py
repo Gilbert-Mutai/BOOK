@@ -38,4 +38,4 @@ class BookingForm(forms.ModelForm):
     date = forms.DateField(widget=DateInput)
     class Meta:
         model = Booking
-        fields =['station','date','no_of_trips']
+        fields =['From','To','date','no_of_trips']
