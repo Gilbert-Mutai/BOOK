@@ -24,6 +24,7 @@ INSTALLED_APPS = [
 
     'app',
     'bootstrap4',
+    
 ]
 
 MIDDLEWARE = [
@@ -128,6 +129,8 @@ STATICFILES_DIRS = [
 #   api_key = "925512892168821", 
 #   api_secret = "yMPnVPLGEbO5lz7SR-YzSXt6Eus" 
 # )
+
+# GOOGLE_MAPS_API_KEY=
 
 # Default primary key field type
 LOGIN_REDIRECT_URL = "/"

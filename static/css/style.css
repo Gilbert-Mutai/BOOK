@@ -59,6 +59,10 @@ body {
   .profile_image{
       margin-right: 10px;
   }
+
+  table-top{
+    background-color: red;
+  }
   
   /* .footer{
     text-align: center;
@@ -90,9 +94,10 @@ body {
     flex-flow: column;
   }
   
-  .footer {
+  footer {
     margin-top: auto;
     background-color: #222;
+    color:white;
   }
 
  

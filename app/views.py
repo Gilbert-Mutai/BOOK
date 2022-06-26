@@ -5,6 +5,7 @@ from django.contrib import messages
 from .email import send_welcome_email,send_admin_email,send_booking_email
 from .forms import RegisterForm,UserUpdateForm,ProfileUpdateForm,BookingForm
 from .utils import station_time
+from .models import Booking
 
 # Create your views here.
 def index(request):
@@ -149,3 +150,13 @@ def booking(request):
 
     }
         return render(request, 'book.html',context)
+
+
+def advance(request):
+    bookings=Booking.objects.all()
+
+    context={
+        'bookings':bookings,
+    }
+
+    return render(request, 'advance.html',context)

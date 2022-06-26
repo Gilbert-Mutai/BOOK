@@ -14,6 +14,7 @@ urlpatterns =[
     path('about-us/', views.about_us, name='about-us'),
     path('contact-us/', views.contact_us, name='contact-us'),
     path('stations/', views.stations, name='stations'),
+    path('advance/', views.advance, name='advance'),
 ]
 
 if settings.DEBUG:

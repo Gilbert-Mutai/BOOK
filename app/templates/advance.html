@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{%load static%}
+
+{% load tz %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+    <div class="row requests">
+        <h1 style="background-color: darkcyan; color:white" class="m-2">Bookings</h1>
+    </div>
+
+    <div class="row user-info">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <table class="table mt-2">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col"></th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">From</th>               
+                        <th scope="col">To</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Trips</th>               
+                        <th scope="col">Time Booked</th>
+
+
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for booking in bookings %}
+                    <tr>
+                        <th scope="row"> {{ forloop.counter }} </th>
+
+                        <td>
+                            <img class="rounded-circle profile_image" src="{{ booking.user.profile.image.url }}" alt="Image" height="25px"
+                            width="25px">
+                        </td>
+
+                        <td>{{booking.user}}</td>
+                        <td>{{booking.user.email}}</td>
+                        <td>{{booking.From}}</td>
+                        <td>{{booking.To}}</td>
+                        <td>{{booking.date}}</td>
+                        <td>{{booking.amount}}</td>
+                        <td>{{booking.no_of_trips}}</td>
+                        <td>{% localtime on %} {{booking.booked_on}}{% endlocaltime %}</td>
+
+                    </tr>
+                    {% endfor %}
+
+
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-md-1"></div>
+
+    </div>
+</div>
+
+{% endblock %}
